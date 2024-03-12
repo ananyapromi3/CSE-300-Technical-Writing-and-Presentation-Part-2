@@ -1,0 +1,101 @@
+\usetheme{Copenhagen}
+% \usetheme{metropolis}
+
+\pdfmapfile{+packages/emerald/fonts/map/dvips/emerald.map}
+
+\beamertemplatenavigationsymbolsempty
+
+\setbeamertemplate{footline}{% 
+  \hfill% 
+  \usebeamercolor[fg]{page number in head/foot}% 
+  \usebeamerfont{page number in head/foot}% 
+  \insertframenumber%
+  \kern1em\vskip2pt% 
+}
+\setbeamertemplate{headline}{}
+
+\definecolor{bgcol}{RGB}{49,73,97}
+\definecolor{bgcol2}{RGB}{0,24,55}
+
+
+\setbeamercolor{block body}{bg=white}
+\setbeamercolor{block title}{bg=bgcol2!90}
+\setbeamercolor{frametitle}{bg=bgcol}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{title}{bg=bgcol}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{section in toc}{bg=white}
+\setbeamercolor{section in toc}{fg=black}
+\setbeamercolor{subsection in toc}{bg=white}
+\setbeamercolor{subsection in toc}{fg=black}
+\setbeamercolor{subsubsection in toc}{bg=white}
+\setbeamercolor{subsubsection in toc}{fg=black}
+\setbeamertemplate{itemize item}{\color{black}$\blacksquare$}
+\setbeamertemplate{itemize subitem}{\color{yellow}$\blacktriangleright$}
+
+\defbeamertemplate{section in toc}{quadrado}
+{\leavevmode\leftskip=1.75ex%
+  \llap{%
+    \usebeamerfont*{section number projected}%
+    \usebeamercolor[black]{section number projected}%
+    \vrule width2.7ex height2.12ex depth.58ex%
+    \hskip-2.7ex%
+    \hbox to2.7ex{\hfil\color{fg}\inserttocsectionnumber\hfil}}%
+  \kern.3ex\inserttocsection\par}
+
+\setbeamertemplate{section in toc}[quadrado]
+\setcounter{tocdepth}{1}
+
+\usebackgroundtemplate%
+{%
+    \includegraphics[width=\paperwidth,height=\paperheight]{figures/bg4.JPG}%
+}
+
+
+\makeatletter
+\setbeamertemplate{title}{
+    \ifbeamercolorempty[bg]{title}{}{\nointerlineskip}%
+    \@tempdima=\textwidth%
+    \advance\@tempdima by\beamer@leftmargin%
+    \advance\@tempdima by\beamer@rightmargin%
+    \centering
+    \begin{beamercolorbox}[sep=.5cm,wd=\the\@tempdima]{title}
+        \centering
+        \usebeamerfont{title}%
+        \vbox{}\vskip-1ex%
+        \if@tempswa\else\csname beamer@ftecenter\endcsname\fi%
+        \strut\inserttitle\strut\par%
+        {%
+            \ifx\insertsubtitle\@empty%
+            \else%
+            {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\strut\par}%
+            \fi
+        }%
+        \vskip-1ex%
+        \if@tempswa\else\vskip-.3cm\fi
+    \end{beamercolorbox}%
+}
+
+\setbeamertemplate{frametitle}{
+    \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+    \@tempdima=\textwidth%
+    \advance\@tempdima by\beamer@leftmargin%
+    \advance\@tempdima by\beamer@rightmargin%
+    \vspace*{1.2cm} 
+    % \hspace*{0cm}
+    \begin{beamercolorbox}[sep=0.3cm,wd=\the\@tempdima]{frametitle}
+        \usebeamerfont{frametitle}%
+        \vbox{}\vskip-1ex%
+        \if@tempswa\else\csname beamer@ftecenter\endcsname\fi%
+        \strut\insertframetitle\strut\par%
+        {%
+            \ifx\insertframesubtitle\@empty%
+            \else%
+            {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+            \fi
+        }%
+        \vskip-1ex%
+        \if@tempswa\else\vskip-.3cm\fi
+    \end{beamercolorbox}%
+}
+\makeatother
